@@ -10,7 +10,7 @@ export default function Home() {
     // 创建定时器，如果 App 没有打开，在 2 秒后跳转到 App Store
     const timeout = setTimeout(() => {
       window.location.href = fallbackURL;
-    }, 2000);
+    }, 500);
   
     // 尝试通过 Universal Link 打开 App
     window.location.href = appLink;
