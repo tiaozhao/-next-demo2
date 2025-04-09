@@ -78,10 +78,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'unsupported_grant_type' }, { status: 400 });
     }
 
-    if (client_id !== process.env.CLIENT_ID || client_secret !== process.env.CLIENT_SECRET) {
-      console.log('Invalid client credentials');
-      return NextResponse.json({ error: 'invalid_client' }, { status: 401 });
-    }
+    // if (client_id !== process.env.CLIENT_ID || client_secret !== process.env.CLIENT_SECRET) {
+    //   console.log('Invalid client credentials');
+    //   return NextResponse.json({ error: 'invalid_client' }, { status: 401 });
+    // }
 
     // 对于授权码类型，验证重定向 URI
     if (grant_type === 'authorization_code' && 
@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
       const now = Math.floor(Date.now() / 1000);
       const accessTokenExpiresIn = 3600; // 1 hour
       const refreshTokenExpiresIn = 30 * 24 * 3600; // 30 days
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://shopify-next-jwt.vercel.app';
+      const baseUrl = 'https://shopify-next-jwt.vercel.app';
 
       // 处理 authorization_code 授权类型
       if (grant_type === 'authorization_code') {

@@ -90,10 +90,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'unsupported_response_type' }, { status: 400 });
     }
 
-    if (client_id !== process.env.CLIENT_ID) {
-      console.log('Invalid client_id:', client_id);
-      return NextResponse.json({ error: 'unauthorized_client' }, { status: 401 });
-    }
+    // if (client_id !== process.env.CLIENT_ID) {
+    //   console.log('Invalid client_id:', client_id);
+    //   return NextResponse.json({ error: 'unauthorized_client' }, { status: 401 });
+    // }
 
     if (!redirect_uri?.startsWith('https://shopify.com/authentication/') || !redirect_uri.includes('/login/external/callback')) {
       console.log('Invalid redirect_uri:', redirect_uri);
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://shopify-next-jwt.vercel.app';
+    const baseUrl = 'https://shopify-next-jwt.vercel.app';
 
     console.log('Importing private key...');
     try {
