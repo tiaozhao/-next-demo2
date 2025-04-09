@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
  * 参考: https://openid.net/specs/openid-connect-discovery-1_0.html
  */
 export async function GET(req: NextRequest) {
-  const baseUrl = 'https://shopify-next-jwt.vercel.app';
+  const baseUrl = 'https://next-demo2-lyart.vercel.app';
 
   // OpenID Provider Metadata - 3.1 节
   const config = {
