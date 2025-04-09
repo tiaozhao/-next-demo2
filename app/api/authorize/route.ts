@@ -154,6 +154,7 @@ export async function POST(req: NextRequest) {
       console.log('JWT code generated successfully');
 
       const redirectUrl = new URL(redirect_uri);
+      redirectUrl.searchParams.set('source', 'core');
       redirectUrl.searchParams.set('code', code);
       if (state) {
         redirectUrl.searchParams.set('state', state);
