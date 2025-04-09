@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
     
     // 使用私钥签名JWT
     const now = Math.floor(Date.now() / 1000);
-    const baseUrl = 'https://next-demo2-lyart.vercel.app/';
+    const baseUrl = 'https://next-demo2-lyart.vercel.app';
     
     const token = await new SignJWT(testData)
       .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
