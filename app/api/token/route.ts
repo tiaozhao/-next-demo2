@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
       const now = Math.floor(Date.now() / 1000);
       const accessTokenExpiresIn = 3600; // 1 hour
       const refreshTokenExpiresIn = 30 * 24 * 3600; // 30 days
-      const baseUrl = 'https://shopify-next-jwt.vercel.app';
+      const baseUrl = 'https://next-demo2-lyart.vercel.app/';
 
       // 处理 authorization_code 授权类型
       if (grant_type === 'authorization_code') {

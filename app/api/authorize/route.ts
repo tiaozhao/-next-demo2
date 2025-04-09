@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const baseUrl = 'https://shopify-next-jwt.vercel.app';
+    const baseUrl = 'https://next-demo2-lyart.vercel.app';
 
     console.log('Importing private key...');
     try {
