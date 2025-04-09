@@ -199,7 +199,7 @@ export async function POST(req: NextRequest) {
 
         console.log('accessToken:', {
           access_token: accessToken,
-          token_type: 'Bearer',
+          token_type: 'bearer',
           expires_in: accessTokenExpiresIn,
           refresh_token: refreshToken,
           id_token: idToken,
@@ -210,7 +210,7 @@ export async function POST(req: NextRequest) {
         return new NextResponse(
           JSON.stringify({
             access_token: accessToken,
-            token_type: 'Bearer',
+            token_type: 'bearer',
             expires_in: accessTokenExpiresIn,
             refresh_token: refreshToken,
             id_token: idToken,
@@ -219,7 +219,7 @@ export async function POST(req: NextRequest) {
           {
             status: 200,
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json;charset=UTF-8',
               'Cache-Control': 'no-store',
               'Pragma': 'no-cache'
             }
@@ -283,7 +283,7 @@ export async function POST(req: NextRequest) {
         return new NextResponse(
           JSON.stringify({
             access_token: newAccessToken,
-            token_type: 'Bearer',
+            token_type: 'bearer',
             expires_in: accessTokenExpiresIn,
             refresh_token: newRefreshToken,
             scope: refreshTokenData.scope

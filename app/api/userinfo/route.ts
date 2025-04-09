@@ -5,7 +5,7 @@ import { PRIVATE_KEY } from '@/app/constants/keys';
 export async function GET(req: NextRequest) {
   try {
     const authHeader = req.headers.get('authorization');
-    if (!authHeader?.startsWith('Bearer ')) {
+    if (!authHeader?.startsWith('Bearer ') || !authHeader?.startsWith('bearer ')) {
       return NextResponse.json({ error: 'invalid_token' }, { status: 401 });
     }
 
