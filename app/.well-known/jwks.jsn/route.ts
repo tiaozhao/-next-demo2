@@ -63,8 +63,8 @@ export async function GET(req: NextRequest) {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-          'Cache-Control': 'public, max-age=86400',  // 缓存 24 小时
-          'Expires': new Date(Date.now() + 86400000).toUTCString()  // 从现在起 24 小时后
+          'Cache-Control': 'public, max-age=300',  // 缓存 5 分钟
+          'Expires': new Date(Date.now() + 300000).toUTCString()  // 从现在起 5 分钟
         }
       }
     );
