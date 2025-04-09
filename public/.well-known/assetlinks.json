@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.guitarcenter.mobile.app",
-    "sha256_cert_fingerprints":
-    ["B8:CD:F2:C9:84:93:C7:C0:65:C5:3A:02:1A:87:FC:AF:1C:41:B1:30:AA:FA:74:4E:32:4E:6E:65:EC:D6:FC:54"]
-  }
-}]
