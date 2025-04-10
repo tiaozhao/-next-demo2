@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
     authorization_endpoint: `${baseUrl}/api/authorize`,               // 3.3 节
     token_endpoint: `${baseUrl}/api/token`,                           // 3.4 节
     jwks_uri: `${baseUrl}/.well-known/jwks.json`,                      // 3.5 节
-    response_types_supported: ['code'],                               // 3.6 节
+    response_types_supported: ['code','id_token'],                              // 3.6 节
     subject_types_supported: ['public'],                              // 3.7 节
     id_token_signing_alg_values_supported: ['RS256'],                 // 3.8 节
 
@@ -74,7 +74,8 @@ export async function GET(req: NextRequest) {
     backchannel_logout_session_supported: false,                      // 后端通道登出会话
     frontchannel_logout_supported: false,                             // 前端通道登出
     frontchannel_logout_session_supported: false,                     // 前端通道登出会话
-    prompt_values_supported: ['none', 'login', 'consent'],             // 支持的提示值
+    prompt_values_supported: ['none', 'login', 'consent'], 
+    jwtKeyId: '1'            // 支持的提示值
   };
 
   // 删除空值字段
