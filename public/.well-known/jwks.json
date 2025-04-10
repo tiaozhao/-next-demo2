@@ -6,7 +6,7 @@
   "e": "AQAB",
   "use": "sig",
   "alg": "RS256",
-  "kid": "1"
+  "kid": "idp-key-2025-04-10"
   }
   ]
   }

@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
     const baseUrl = 'https://next-demo2-lyart.vercel.app';
     
     const token = await new SignJWT(testData)
-      .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+      .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
       .setIssuedAt()
       .setExpirationTime(now + 3600) // 1小时后过期
       .setIssuer(baseUrl)

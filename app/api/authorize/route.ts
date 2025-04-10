@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
           locale: user.locale || 'en'
         }
       })
-        .setProtectedHeader({ alg: 'RS256', typ: 'at+jwt', kid: '1' })
+        .setProtectedHeader({ alg: 'RS256', typ: 'at+jwt', kid: 'idp-key-2025-04-10' })
         .setJti(crypto.randomUUID())
         .setIssuedAt()
         .setExpirationTime(now + 600)

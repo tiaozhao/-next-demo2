@@ -156,7 +156,7 @@ export async function POST(req: NextRequest) {
           jti: crypto.randomUUID(),
           scope: authData.scope,
         })
-          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
           .setIssuedAt()
           .setExpirationTime(now + accessTokenExpiresIn)
           .sign(privateKey);
@@ -170,7 +170,7 @@ export async function POST(req: NextRequest) {
           scope: authData.scope,
           user: authData.user, // 在 refresh token 中包含用户信息，以便刷新时使用
         })
-          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
           .setIssuedAt()
           .setExpirationTime(now + refreshTokenExpiresIn)
           .sign(privateKey);
@@ -192,7 +192,7 @@ export async function POST(req: NextRequest) {
           locale: authData.user.locale,
           at_hash: createHash('sha256').update(accessToken).digest('base64url').substring(0, 32),
         })
-          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
           .sign(privateKey);
 
         console.log('Tokens generated successfully');
@@ -258,7 +258,7 @@ export async function POST(req: NextRequest) {
           jti: crypto.randomUUID(),
           scope: refreshTokenData.scope,
         })
-          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
           .setIssuedAt()
           .setExpirationTime(now + accessTokenExpiresIn)
           .sign(privateKey);
@@ -272,7 +272,7 @@ export async function POST(req: NextRequest) {
           scope: refreshTokenData.scope,
           user: refreshTokenData.user,
         })
-          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: '1' })
+          .setProtectedHeader({ alg: 'RS256', typ: 'JWT', kid: 'idp-key-2025-04-10' })
           .setIssuedAt()
           .setExpirationTime(now + refreshTokenExpiresIn)
           .sign(privateKey);

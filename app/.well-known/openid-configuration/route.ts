@@ -75,7 +75,7 @@ export async function GET(req: NextRequest) {
     frontchannel_logout_supported: false,                             // 前端通道登出
     frontchannel_logout_session_supported: false,                     // 前端通道登出会话
     prompt_values_supported: ['none', 'login', 'consent'], 
-    jwtKeyId: '1'            // 支持的提示值
+    jwtKeyId: 'idp-key-2025-04-10'            // 支持的提示值
   };
 
   // 删除空值字段
