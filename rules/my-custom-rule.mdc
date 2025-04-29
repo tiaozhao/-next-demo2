@@ -1,0 +1,180 @@
+---
+description: Code Standards and Project Rules for Shopify B2B Customer Account App
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+# Shopify B2B Customer Account App - Cursor Rules
+
+## Project Architecture
+- The project follows a layered architecture:
+  - `app/routes/` - Routes and Controller layer
+  - `app/services/` - Business logic layer
+  - `app/repositories/` - Data access layer
+  - `app/components/` - UI component layer
+  - `app/types/` - Type definitions
+  - `app/lib/` - Utility libraries
+  - `app/hooks/` - React hooks
+  - `app/context/` - React context
+  - `app/config/` - Configuration files
+  - `app/constant/` - Constant definitions
+  - `prisma/` - Database models and migrations
+
+## Naming Conventions
+1. File naming:
+   - Component files: PascalCase (e.g., `CustomerTable.tsx`)
+   - Non-component TypeScript files: kebab-case (e.g., `customer-service.ts`)
+   - Test files: original-name.test.ts(x) (e.g., `customer-service.test.ts`)
+   - Directory names: kebab-case (e.g., `customer-account/`)
+
+2. Code naming:
+   - Classes/Interfaces/Types: PascalCase (e.g., `CustomerService`, `OrderResponse`)
+   - Methods/Functions/Variables: camelCase (e.g., `getCustomerDetails`, `orderId`)
+   - Constants: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`)
+   - React components: PascalCase (e.g., `CustomerTable`)
+   - React hooks: start with `use` (e.g., `useCustomerData`)
+   - Boolean variables: start with `is`, `has`, `should`, etc. (e.g., `isLoading`, `hasError`)
+
+## TypeScript Standards
+1. Strict TypeScript usage:
+   - Enable `strict` mode
+   - Avoid using `any` type
+   - Define types for all function parameters and return values
+   - Use interfaces to define object structures
+   - Use Zod for runtime type validation
+
+2. Type definitions:
+   - Manage shared types in the `app/types/` directory
+   - Use named exports
+   - Component props types should end with `Props` suffix (e.g., `CustomerTableProps`)
+   - API response types should end with `Response` suffix (e.g., `CustomerResponse`)
+   - API request types should end with `Request` suffix (e.g., `UpdateCustomerRequest`)
+
+## React Component Standards
+1. Component structure:
+   - Use arrow functions for functional components (`const Component = () => {}`)
+   - Destructure props and define default values
+   - Use React.memo for performance optimization
+   - Extract logic into custom hooks
+   - Component files should export only one main component
+
+2. Component design:
+   - Single responsibility for components
+   - Use composition over inheritance
+   - Extract shared logic into hooks
+   - Use Context API for shared state management
+   - Use component segregation appropriately
+
+3. Styling:
+   - Use Tailwind CSS
+   - Follow UI component library standards in the project
+   - Create composition classes for complex components
+
+## API and Data Handling
+1. API design:
+   - Follow RESTful principles
+   - Use TypeScript for request/response type definitions
+   - Validate request data with Zod
+   - Standardize error handling and response formats
+
+2. Database operations:
+   - Use Prisma ORM
+   - Centralize database operations in repositories layer
+   - Use transactions for complex operations
+   - Validate input data
+   - Handle errors appropriately
+
+## Error Handling and Logging
+1. Error handling:
+   - Use try-catch blocks to catch exceptions
+   - Differentiate between error types
+   - Return clear error messages
+   - Use custom error classes
+
+2. Logging:
+   - Log errors and warnings appropriately
+   - Include context information
+   - Avoid logging sensitive information
+   - Use appropriate log levels
+
+## Code Organization and Best Practices
+1. File organization:
+   - Group related functionality into directories
+   - Organize component directories by functionality
+   - Place common components in the `common/` directory
+   - Keep page-level components and their sub-components in the same directory
+
+2. Import order:
+   - Third-party library imports
+   - Project imports (sorted by relative path)
+   - Style imports
+   
+   Example:
+   ```typescript
+   import { useState } from 'react';
+   import { useNavigate } from '@remix-run/react';
+   
+   import { CustomerService } from '~/services/customer-service';
+   import { Button } from '~/components/ui/button';
+   ```
+
+3. Code style:
+   - Use ESLint and Prettier to enforce code style
+   - Maximum line width: 160 characters
+   - Use single quotes
+   - Use semicolons
+   - Indentation: 2 spaces
+   - Follow DRY principles
+
+## Testing Standards
+1. Test coverage:
+   - Unit tests: Services and utility functions
+   - Component tests: Use React Testing Library
+   - Integration tests: API endpoints
+   - Test coverage target: Minimum 70%
+
+2. Test organization:
+   - Keep test files in the same directory as source files
+   - Use `.test.ts(x)` suffix for test files
+   - Use `describe` blocks for test grouping
+   - Use `it` or `test` for test cases
+   - Use `beforeEach` to set up test preconditions
+
+## Version Control
+1. Git standards:
+   - Follow Conventional Commits
+   - Commit message format: `<type>(<scope>): <description>`
+   - Types include: feat, fix, docs, style, refactor, test, chore
+   - Branch names: Use `feature/`, `bugfix/`, `hotfix/` prefixes
+
+2. Branch management:
+   - Use GitFlow workflow
+   - Create feature branches from main branch
+   - Merge changes via PR/MR
+   - Keep branches up to date
+   - Delete feature branches after merging
+
+## Security Best Practices
+1. Data validation:
+   - Validate all user input
+   - Use Zod for type validation
+   - Perform appropriate authorization checks
+   - Avoid directly exposing sensitive information
+
+2. Authentication and authorization:
+   - Use Shopify authentication mechanisms
+   - Implement role-based access control
+   - Secure token management
+   - Verify user permissions
+
+## Performance Optimization
+1. Frontend performance:
+   - Use React.memo to avoid unnecessary re-renders
+   - Lazy load large components
+   - Optimize list rendering (use unique keys)
+   - Use caching mechanisms
+
+2. Backend performance:
+   - Optimize database queries
+   - Implement appropriate caching strategies
+   - Use pagination for large datasets
+   - Monitor API performance
