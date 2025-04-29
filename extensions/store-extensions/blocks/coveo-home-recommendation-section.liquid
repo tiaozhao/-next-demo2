@@ -1,0 +1,140 @@
+<div class='coveo-rec-container'>
+  <div class='coveo-rec-product-header'>
+    <h2 class='coveo-rec-product-title'>
+      <span class='coveo-rec-product-title-featured'>{{ block.settings.featured_title }}</span>
+      <span class='coveo-rec-product-title-products'>{{ block.settings.products_title }}</span>
+    </h2>
+  </div>
+
+  <div id='coveo-home-recommendation-section'>
+    <div
+      id='featured-products-loading'
+      class='coveo-rec-loading'
+    >
+      <div class='coveo-rec-loading-spinner'></div>
+      <p>Loading recommendations...</p>
+    </div>
+
+    <div
+      id='featured-products-error'
+      class='coveo-rec-error'
+    >
+      <p>Unable to load recommendations. Please try again later.</p>
+    </div>
+
+    <div class='swiper-button-prev'>
+      <div class='coveo-rec-product-slider-button-prev'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='18'
+          height='18'
+          viewBox='0 0 18 18'
+          fill='none'
+        >
+          <path d="M4.68979 8.41691L11.3657 1.74139C11.6875 1.41954 12.2096 1.41954 12.5315 1.74139L13.3102 2.5201C13.6317 2.84161 13.632 3.36236 13.3116 3.68456L8.02068 8.99983L13.3112 14.3154C13.632 14.6376 13.6314 15.1584 13.3098 15.4799L12.5311 16.2586C12.2093 16.5805 11.6872 16.5805 11.3653 16.2586L4.68979 9.58274C4.36793 9.26089 4.36793 8.73877 4.68979 8.41691Z" fill="currentColor"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class='swiper-button-next'>
+      <div class='coveo-rec-product-slider-button-next'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='16'
+          height='16'
+          viewBox='0 0 18 18'
+          fill='none'
+        >
+          <path d="M13.3101 9.58293L6.63442 16.2585C6.31247 16.5805 5.79049 16.5805 5.46856 16.2585L4.68996 15.4799C4.36855 15.1585 4.36794 14.6376 4.68859 14.3154L9.97915 8.99998L4.68859 3.68456C4.36794 3.36239 4.36855 2.84148 4.68996 2.52007L5.46856 1.74147C5.79052 1.41951 6.3125 1.41951 6.63442 1.74147L13.31 8.41707C13.632 8.73899 13.632 9.26097 13.3101 9.58293Z" fill="currentColor"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id='coveo-home'
+    class='swiper'
+  >
+    <div class='swiper-wrapper'>
+      <!-- Slides will be populated dynamically -->
+    </div>
+
+    <div class='swiper-pagination'></div>
+  </div>
+
+  <!-- Product card template -->
+  <template id='product-card-template'>
+    <div class='swiper-slide'>
+      <div class='coveo-rec-product-card'>
+        <a
+          href='#'
+          class='coveo-rec-product-image-container'
+        >
+          <img
+            src=''
+            alt=''
+            class='coveo-rec-product-image'
+          >
+        </a>
+        <div class='coveo-rec-product-details'>
+          <div class='coveo-rec-product-brand'></div>
+          <div class='coveo-rec-product-name'><a href='#'></a></div>
+          <div class='coveo-rec-product-list-price-wrapper'>
+            <div class='coveo-rec-product-list-price-label'>List Price:</div>
+            <span class='coveo-rec-product-list-price'></span>
+          </div>
+          <div class='coveo-rec-product-price-wrapper'>
+            <div class='coveo-rec-product-price-label'>Your Price:</div>
+            <span class='coveo-rec-product-price'></span>
+            <span class='coveo-rec-product-uom'>/ each</span>
+          </div>
+          <div class='coveo-rec-product-info'>
+            <div class='coveo-rec-product-partner-number-wrapper'>
+              <div class='coveo-rec-product-partner-number-label'>Customer Partner Number:</div>
+              <textarea disabled class='coveo-rec-product-partner-number'></textarea>
+            </div>
+            <div class='coveo-rec-product-sku-wrapper'>
+              <div class='coveo-rec-product-sku-label'>SKU:</div>
+              <textarea disabled class='coveo-rec-product-sku'></textarea>
+            </div>
+          </div>
+          <div class='coveo-rec-product-buttons'>
+            <button class='coveo-rec-btn-add-to-cart'>Add to Cart</button>
+            <button class='coveo-rec-btn-add-to-list'>Add to List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<script>
+  // Reset the modules before loading to avoid conflicts
+  window.CoveoUtilsModule = undefined;
+
+  window.coveoModulePaths = {
+    module2: "{{ 'coveo-search-results-module2.js' | asset_url }}",
+  };
+</script>
+
+{% schema %}
+{
+  "name": "t:coveo_home_recommendation-section.name",
+  "target": "section",
+  "javascript": "coveo-home-recommendation-section.js",
+  "settings": [
+    {
+      "type": "text",
+      "id": "featured_title",
+      "label": "t:coveo_home_recommendation-section.settings.featured_label",
+      "default": "t:coveo_home_recommendation-section.defaults.featured_title"
+    },
+    {
+      "type": "text",
+      "id": "products_title",
+      "label": "t:coveo_home_recommendation-section.settings.products_label",
+      "default": "t:coveo_home_recommendation-section.defaults.products_title"
+    }
+  ]
+}
+{% endschema %}

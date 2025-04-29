@@ -1,0 +1,191 @@
+{
+  "frequency": {
+    "options": {
+      "day": "Día",
+      "week": "Semana",
+      "month": "Mes",
+      "year": "Año",
+      "daily": "Diario",
+      "weekly": "Semanal",
+      "monthly": "Mensual",
+      "annually": "Anual",
+      "daily-text": "Día",
+      "weekly-text": "Semana",
+      "monthly-text": "Mes",
+      "annually-text": "Año"
+    },
+    "text": {
+      "multiple": "{{count}} Frecuencias de Entrega",
+      "single": "Entrega cada {{frequency}} {{unit}}",
+      "daily": "Día",
+      "daily-multiple": "Días",
+      "weekly": "Semana",
+      "weekly-multiple": "Semanas",
+      "monthly": "Mes",
+      "monthly-multiple": "Meses",
+      "annually": "Año",
+      "annually-multiple": "Años"
+    }
+  },
+  "list": {
+    "title": "Plan de Suscripción",
+    "table": {
+      "name": "Título",
+      "description": "Descripción",
+      "company-location": "Ubicación de la Empresa",
+      "products": "Productos",
+      "products-count": "{{count}} Productos",
+      "product-count": "{{count}} Producto",
+      "frequency": "Frecuencia de Entrega",
+      "frequencies-count": "{{count}} Frecuencias de Entrega",
+      "frequency-count": "{{count}} Frecuencia de Entrega",
+      "discount": "Descuento",
+      "actions": "Acciones",
+      "no-subscription-plans-found": "No se encontraron planes de suscripción",
+      "create-subscription-plan": "Crear Plan de Suscripción",
+      "created-at": "Fecha de Creación",
+      "updated-at": "Fecha de Actualización",
+      "action": {
+        "detail": "Detalle",
+        "delete": "Eliminar"
+      }
+    },
+    "filter": {
+      "name": "Título",
+      "company-location": "Ubicación de la Empresa",
+      "products": "Productos",
+      "frequency": "Frecuencia de Entrega",
+      "tabs": {
+        "all": "Todos"
+      }
+    },
+    "sort": {
+      "created-at": "Fecha de Creación",
+      "updated-at": "Fecha de Actualización",
+      "ascending": "Ascendente",
+      "descending": "Descendente"
+    },
+    "pagination": {
+      "total-records": "Total de {{count}} registros"
+    },
+    "modal": {
+      "delete-plan": {
+        "title": "¿Eliminar {{count}} Plan(es) de Suscripción Seleccionado(s)?",
+        "title-singular": "¿Eliminar Plan de Suscripción?",
+        "description": "Esta acción no se puede deshacer. Los contratos asociados no se verán afectados.",
+        "confirm": "Confirmar",
+        "cancel": "Cancelar",
+        "delete-success": "Plan de suscripción eliminado correctamente",
+        "delete-error": "Error al eliminar el plan de suscripción, {{error}}"
+      }
+    },
+    "action": {
+      "create-new-plan": "Crear Nuevo Plan",
+      "delete-plan": "Eliminar Plan"
+    }
+  },
+  "create": {
+    "title": "Crear Plan de Suscripción",
+    "summary": {
+      "title": "Resumen"
+    },
+    "form": {
+      "frequency-options": {
+        "day": "Día",
+        "week": "Semana",
+        "month": "Mes",
+        "year": "Año"
+      },
+      "section": {
+        "product": "Producto",
+        "discount-and-delivery": "Descuento y Entrega"
+      },
+      "title": {
+        "label": "Título",
+        "placeholder": "Ingrese el Título",
+        "required": "El título es obligatorio"
+      },
+      "description": {
+        "label": "Descripción",
+        "placeholder": "Ingrese la Descripción",
+        "required": "La descripción es obligatoria",
+        "help-text": "Solo para referencia"
+      },
+      "company": {
+        "label": "Empresa",
+        "placeholder": "Seleccione la Empresa",
+        "required": "La empresa es obligatoria"
+      },
+      "company-location": {
+        "label": "Ubicación de la Empresa",
+        "placeholder": "Seleccione la Ubicación de la Empresa",
+        "required": "La ubicación de la empresa es obligatoria"
+      },
+      "product-search": {
+        "label": "Búsqueda de Productos",
+        "placeholder": "Ingrese el Nombre del Producto o Número de Artículo",
+        "product-already-selected": "El producto ya ha sido seleccionado",
+        "stock": "{{count}} en existencia",
+        "sku": "SKU: {{sku}}",
+        "variant-title": "Variante: {{variantTitle}}"
+      },
+      "offer-discount": {
+        "label": "Ofrecer Descuento"
+      },
+      "discount-type": {
+        "percentage": "Porcentaje de descuento",
+        "amount": "Monto de descuento",
+        "fixed": "Descuento fijo"
+      },
+      "delivery-interval": {
+        "label": "Frecuencia de Entrega",
+        "placeholder": "Ingrese la Frecuencia",
+        "required": "La frecuencia de entrega es obligatoria",
+        "greater-than-zero": "La frecuencia de entrega debe ser mayor que 0",
+        "frequency-must-be-unique": "La frecuencia debe ser única"
+      },
+      "delivery-interval-unit": {
+        "label": "Unidad de Frecuencia de Entrega",
+        "placeholder": "Seleccione la Unidad"
+      },
+      "discount-value": {
+        "label": "Valor del Descuento",
+        "placeholder": "Ingrese el Descuento",
+        "required": "El valor del descuento es obligatorio",
+        "greater-than-zero": "El valor del descuento debe ser mayor que 0",
+        "percentage-must-be-less-than-100": "El porcentaje debe ser menor que 100",
+        "help-text": "Este será el precio mostrado al cliente"
+      },
+      "product": {
+        "quantity": {
+          "label": "Cantidad",
+          "required": "La cantidad es obligatoria",
+          "greater-than-zero": "La cantidad debe ser mayor que 0",
+          "out-of-stock": "Cantidad fuera de stock máxima {{maxQuantity}}",
+          "quantity-rule": {
+            "min": "Cantidad mínima es {{minQuantity}}",
+            "max": "Cantidad máxima es {{maxQuantity}}",
+            "increment": "Cantidad debe ser un múltiplo de {{increment}}"
+          }
+        },
+        "sku": {
+          "label": "SKU"
+        },
+        "price": {
+          "label": "Precio"
+        }
+      },
+      "add-frequency": {
+        "label": "Agregar Opción"
+      },
+      "submit": {
+        "label": "Guardar",
+        "vaild-error": "Algo salió mal, por favor revise los campos",
+        "submit-success": "Plan de suscripción creado correctamente",
+        "submit-error": "Error al crear el plan de suscripción, {{error}}",
+        "update-success": "Plan de suscripción actualizado correctamente",
+        "update-error": "Error al actualizar el plan de suscripción, {{error}}"
+      }
+    }
+  }
+}

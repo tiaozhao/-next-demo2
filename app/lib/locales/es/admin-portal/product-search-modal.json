@@ -1,0 +1,11 @@
+{
+  "label": "Elegir Producto",
+  "placeholder": "Ingrese el Nombre del Producto o Número de Artículo",
+  "search-empty-result": "No se encontraron resultados. Intente con un código de producto o palabra clave válida.",
+  "cancel": "Cancelar",
+  "confirm": "Confirmar",
+  "product-select-tree": {
+    "stock": "{{count}} en existencia"
+  },
+  "selected-products": "Total de {{count}} Productos Seleccionados"
+}

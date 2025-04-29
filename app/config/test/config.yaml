@@ -1,0 +1,55 @@
+app:
+  name: B2B Customer Account App (Test)
+  logLevel: info
+  version: 1.0.0
+
+api:
+  timeout: 5000
+  retries: 1
+
+features:
+  enableAI: false
+  enableTelemetry: false
+  enableDebugMode: true
+  
+database:
+  poolSize: 5
+  connectionTimeout: 10000
+  idleTimeout: 20000
+  maxConnections: 10
+  minConnections: 2
+
+ui:
+  theme: light
+  animation: false
+  itemsPerPage: 10
+  enableDevTools: true
+
+services:
+  shopify:
+    apiVersion: "2024-10"
+    storageEngine: "memory"
+  
+  analytics:
+    provider: "none"
+    sampleRate: 0
+    
+  cache:
+    ttl: 60
+    provider: "memory"
+    
+  ai:
+    provider: "mock"
+    model: "test-model"
+    
+  storage:
+    bucketName: "shopify-rds-test-storage"
+    
+  coveo:
+    organizationId: "test-org-id"
+    sourceId: "test-source-id"
+
+server:
+  port: 3000
+  cors:
+    allowedOrigins: "*" 

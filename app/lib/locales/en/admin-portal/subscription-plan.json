@@ -1,0 +1,191 @@
+{
+  "frequency": {
+    "options": {
+      "day": "Day",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "annually": "Annually",
+      "daily-text": "Day",
+      "weekly-text": "Week",
+      "monthly-text": "Month",
+      "annually-text": "Year"
+    },
+    "text": {
+      "multiple": "{{count}} Delivery Frequencies",
+      "single": "Delivery Every {{frequency}} {{unit}}",
+      "daily": "Day",
+      "daily-multiple": "Days",
+      "weekly": "Week",
+      "weekly-multiple": "Weeks",
+      "monthly": "Month",
+      "monthly-multiple": "Months",
+      "annually": "Year",
+      "annually-multiple": "Years"
+    }
+  },
+  "list": {
+    "title": "Subscription Plan",
+    "table": {
+      "name": "Title",
+      "description": "Description",
+      "company-location": "Company Location",
+      "products": "Products",
+      "products-count": "{{count}} Products",
+      "product-count": "{{count}} Product",
+      "frequency": "Delivery Frequency",
+      "frequencies-count": "{{count}} Delivery Frequencies",
+      "frequency-count": "{{count}} Delivery Frequency",
+      "discount": "Discount",
+      "actions": "Actions",
+      "no-subscription-plans-found": "No subscription plans found",
+      "create-subscription-plan": "Create Subscription Plan",
+      "created-at": "Created At",
+      "updated-at": "Updated At",
+      "action": {
+        "detail": "Detail",
+        "delete": "Delete"
+      }
+    },
+    "filter": {
+      "name": "Title",
+      "company-location": "Company Location",
+      "products": "Products",
+      "frequency": "Delivery Frequency",
+      "tabs": {
+        "all": "All"
+      }
+    },
+    "sort": {
+      "created-at": "Created At",
+      "updated-at": "Updated At",
+      "ascending": "Ascending",
+      "descending": "Descending"
+    },
+    "pagination": {
+      "total-records": "Total of {{count}} records"
+    },
+    "modal": {
+      "delete-plan": {
+        "title": "Delete Selected {{count}} Subscription Plan?",
+        "title-singular": "Delete Subscription Plan?",
+        "description": "This action cannot be undone. Any associated contracts will not be affected.",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "delete-success": "Subscription plan deleted successfully",
+        "delete-error": "Error deleting subscription plan, {{error}}"
+      }
+    },
+    "action": {
+      "create-new-plan": "Create New Plan",
+      "delete-plan": "Delete Plan"
+    }
+  },
+  "create": {
+    "title": "Create Subscription Plan",
+    "summary": {
+      "title": "Summary"
+    },
+    "form": {
+      "frequency-options": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month",
+        "year": "Year"
+      },
+      "section": {
+        "product": "Product",
+        "discount-and-delivery": "Discount And Delivery"
+      },
+      "title": {
+        "label": "Title",
+        "placeholder": "Enter Title",
+        "required": "Title is required"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter Description",
+        "required": "Description is required",
+        "help-text": "For reference only"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Select Company",
+        "required": "Company is required"
+      },
+      "company-location": {
+        "label": "Company Location",
+        "placeholder": "Select Company Location",
+        "required": "Company Location is required"
+      },
+      "product-search": {
+        "label": "Product Search",
+        "placeholder": "Enter Product Name or Item Number",
+        "product-already-selected": "Product has already been selected",
+        "stock": "{{count}} in stock",
+        "sku": "SKU: {{sku}}",
+        "variant-title": "Variant: {{variantTitle}}"
+      },
+      "offer-discount": {
+        "label": "Offer Discount"
+      },
+      "discount-type": {
+        "percentage": "Percentage off",
+        "amount": "Amount off",
+        "fixed": "Fixed off"
+      },
+      "delivery-interval": {
+        "label": "Delivery Frequency",
+        "placeholder": "Enter Frequency",
+        "required": "Delivery frequency is required",
+        "greater-than-zero": "Delivery frequency must be greater than 0",
+        "frequency-must-be-unique": "Frequency must be unique"
+      },
+      "delivery-interval-unit": {
+        "label": "Delivery Interval",
+        "placeholder": "Select Interval"
+      },
+      "discount-value": {
+        "label": "Discount Value",
+        "placeholder": "Enter Discount",
+        "required": "Discount value is required",
+        "greater-than-zero": "Discount value must be greater than 0",
+        "percentage-must-be-less-than-100": "Percentage must be less than 100",
+        "help-text": "This will be the price displayed to the customer"
+      },
+      "product": {
+        "quantity": {
+          "label": "Quantity",
+          "required": "Quantity is required",
+          "greater-than-zero": "Quantity must be greater than 0",
+          "out-of-stock": "Out of stock max quantity {{maxQuantity}}",
+          "quantity-rule": {
+            "min": "Minimum quantity is {{minQuantity}}",
+            "max": "Maximum quantity is {{maxQuantity}}",
+            "increment": "Quantity must be a multiple of {{increment}}"
+          }
+        },
+        "sku": {
+          "label": "SKU"
+        },
+        "price": {
+          "label": "Price"
+        }
+      },
+      "add-frequency": {
+        "label": "Add Option"
+      },
+      "submit": {
+        "label": "Save",
+        "vaild-error": "Something went wrong, please check the fields",
+        "submit-success": "Subscription plan created successfully",
+        "submit-error": "Error creating subscription plan, {{error}}",
+        "update-success": "Subscription plan updated successfully",
+        "update-error": "Error updating subscription plan, {{error}}"
+      }
+    }
+  }
+}

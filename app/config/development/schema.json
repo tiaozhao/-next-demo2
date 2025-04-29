@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Development Environment Configuration Schema",
+  "description": "Schema for the development environment configuration",
+  "type": "object",
+  "required": ["app", "services", "server"],
+  "properties": {
+    "app": {
+      "type": "object",
+      "required": ["name", "logLevel", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Application name"
+        },
+        "logLevel": {
+          "type": "string",
+          "enum": ["debug", "info", "warn", "error"],
+          "description": "Application log level"
+        },
+        "version": {
+          "type": "string",
+          "description": "Application version"
+        }
+      }
+    },
+    "services": {
+      "type": "object",
+      "required": ["shopify", "ai", "storage", "coveo"],
+      "properties": {
+        "shopify": {
+          "type": "object",
+          "required": ["apiVersion", "storageEngine"],
+          "properties": {
+            "apiVersion": {
+              "type": "string",
+              "description": "Shopify API version"
+            },
+            "storageEngine": {
+              "type": "string",
+              "enum": ["prisma", "mongodb", "redis"],
+              "description": "Storage engine for Shopify data"
+            }
+          }
+        },
+        "ai": {
+          "type": "object",
+          "required": ["provider", "model", "baseUrl", "maxUsagePercentage", "modes"],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "AI service provider"
+            },
+            "model": {
+              "type": "string",
+              "description": "Default AI model to use"
+            },
+            "baseUrl": {
+              "type": "string",
+              "description": "Base URL for AI API"
+            },
+            "maxUsagePercentage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Maximum usage percentage for AI services"
+            },
+            "modes": {
+              "type": "object",
+              "required": ["imageProcessing", "textRecommendation", "subscriptionRecommendation"],
+              "properties": {
+                "imageProcessing": {
+                  "type": "object",
+                  "required": ["model", "temperature", "maxTokens"],
+                  "properties": {
+                    "model": {
+                      "type": "string",
+                      "description": "AI model for image processing"
+                    },
+                    "temperature": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 2,
+                      "description": "Temperature setting for image processing AI"
+                    },
+                    "maxTokens": {
+                      "type": "number",
+                      "minimum": 1,
+                      "description": "Maximum tokens for image processing AI"
+                    }
+                  }
+                },
+                "textRecommendation": {
+                  "type": "object",
+                  "required": ["model", "temperature", "maxTokens"],
+                  "properties": {
+                    "model": {
+                      "type": "string",
+                      "description": "AI model for text recommendations"
+                    },
+                    "temperature": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 2,
+                      "description": "Temperature setting for text recommendation AI"
+                    },
+                    "maxTokens": {
+                      "type": "number",
+                      "minimum": 1,
+                      "description": "Maximum tokens for text recommendation AI"
+                    }
+                  }
+                },
+                "subscriptionRecommendation": {
+                  "type": "object",
+                  "required": ["model", "temperature", "maxTokens"],
+                  "properties": {
+                    "model": {
+                      "type": "string",
+                      "description": "AI model for subscription recommendations"
+                    },
+                    "temperature": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 2,
+                      "description": "Temperature setting for subscription recommendation AI"
+                    },
+                    "maxTokens": {
+                      "type": "number",
+                      "minimum": 1,
+                      "description": "Maximum tokens for subscription recommendation AI"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "storage": {
+          "type": "object",
+          "required": ["bucketName"],
+          "properties": {
+            "bucketName": {
+              "type": "string",
+              "description": "Storage bucket name"
+            }
+          }
+        },
+        "coveo": {
+          "type": "object",
+          "required": ["organizationId", "apiKey", "productSource", "pageSource"],
+          "properties": {
+            "organizationId": {
+              "type": "string",
+              "description": "Coveo organization ID"
+            },
+            "apiKey": {
+              "type": "string",
+              "description": "Coveo API key"
+            },
+            "productSource": {
+              "type": "object",
+              "required": ["name", "pushSourceId"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Coveo product source name"
+                },
+                "pushSourceId": {
+                  "type": "string",
+                  "description": "Coveo product push source ID"
+                }
+              }
+            },
+            "pageSource": {
+              "type": "object",
+              "required": ["name", "pushSourceId"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Coveo page source name"
+                },
+                "pushSourceId": {
+                  "type": "string",
+                  "description": "Coveo page push source ID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server": {
+      "type": "object",
+      "required": ["port", "cors"],
+      "properties": {
+        "port": {
+          "type": "number",
+          "description": "Server port"
+        },
+        "cors": {
+          "type": "object",
+          "required": ["allowedOrigins"],
+          "properties": {
+            "allowedOrigins": {
+              "type": "string",
+              "description": "CORS allowed origins"
+            }
+          }
+        }
+      }
+    }
+  }
+} 

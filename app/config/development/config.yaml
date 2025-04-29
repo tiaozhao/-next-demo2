@@ -1,0 +1,47 @@
+app:
+  name: B2B Customer Account App
+  logLevel: info
+  version: 1.0.0
+
+services:
+  shopify:
+    apiVersion: "2025-01"
+    storageEngine: "prisma"
+  
+    
+  ai:
+    provider: "openrouter"
+    model: "google/gemini-2.0-flash-001"
+    baseUrl: "https://openrouter.ai/api/v1"
+    maxUsagePercentage: 80
+    modes:
+      imageProcessing:
+        model: "google/gemini-2.0-flash-001"
+        temperature: 0
+        maxTokens: 4000
+      textRecommendation:
+        model: "google/gemini-2.0-flash-001"
+        temperature: 0.7
+        maxTokens: 2000
+      subscriptionRecommendation:
+        model: "google/gemini-2.0-flash-001"
+        temperature: 0.5
+        maxTokens: 2000
+  storage:
+    bucketName: "shopify-rds-static-storage"
+    
+  coveo:
+    organizationId: "aaxispartnerorggxlmz1i4"
+    apiKey: "xxa79484b9-af6a-4f9d-b987-9db3e1363b70"
+    productSource:
+      name: "aaxis-product-source"
+      pushSourceId: "aaxispartnerorggxlmz1i4-q2xjrzyya7kvfntytwybvocg7m"
+    pageSource:
+      name: "aaxis-page-source"
+      pushSourceId: "aaxispartnerorggxlmz1i4-um6yp33gcw3xyn4mwfxhidsgdu"
+  
+
+server:
+  port: 3000
+  cors:
+    allowedOrigins: "*" 

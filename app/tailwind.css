@@ -1,0 +1,412 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app-hidden {
+  display: none;
+}
+
+body {
+  letter-spacing: normal;
+  font-family: 'Inter', sans-serif;
+  color: hsl(var(--gray-700));
+  background-color: hsl(var(--background));
+}
+
+@layer utilities {
+  .shadow-custom {
+    @apply shadow-item;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  /* Default/light theme */
+  :root {
+    /* Core UI variables */
+    --radius: 0.5rem;
+
+    --sidebar-width: 257px;
+    
+    /* Base colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 21%; /* #363636 */
+    /* Outline */
+    --outline: 216 91% 67%; /* #57ABFF */
+
+    /* Layout component colors */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 21%; /* #363636 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 21%; /* #363636 */
+    --border: 0 0% 87.84%; /* #E0E0E0 */
+    --input: 240 5.9% 90%; /* #E4E4E9 */
+    --ring: 0 0% 87.84%; /* #E0E0E0 */
+    --overlay: 114 2% 21% / 0.6; /* #35362A99 */
+    
+    /* Primary colors */
+    --primary: 22.84 100% 55.69%; /* #FF731D */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Secondary colors */
+    --secondary: 215.52 90.47% 67.05%; /* #5CACFF */
+    --secondary-foreground: 219.72 75.12% 36.27%; /* #1E51A4 */
+    --secondary-light: 215.29 100.00% 96.67%; /* #F0F7FF */
+    
+    /* Accent colors */
+    --accent: 240 4.8% 95.9%; /* #F4F4F6 */
+    --accent-foreground: 0 0% 21%; /* #363636 */
+    
+    /* Utility colors */
+    --muted: 240 4.8% 95.9%; /* #F4F4F6 */
+    --muted-foreground: 240 3.8% 46.1%; /* #737380 */
+    --destructive: 0 84.2% 60.2%; /* #F03E3E */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Status colors */
+    --success: 158 63% 33%; /* #1F8A59 */
+    --warning: 0 100% 40%; /* #CC0000 */
+    --error: 0 84% 60%; /* #F03E3E */
+    --error-light: 0 84% 90%; /* #FBCECE */
+    
+    /* Text colors */
+    --text-primary: 0 0% 21%; /* #363636 */
+    --text-primary-main: 0 0% 21%; /* #363636 */
+    --text-error: 0 84% 60%; /* #F03E3E */
+    --text-muted: 240 3.8% 46.1%; /* #737380 */
+    --text-white: 0 0% 100%; /* #FFFFFF */
+    --text-gray: 3 24% 72%; /* #BCBDB9 */
+    --text-outline: 216 91% 67%; /* #57ABFF */
+    
+    /* Gray scale */
+    --gray-50: 0 0% 97.25%; /* #F8F8F8 */
+    --gray-100: 0 0% 92%; /* #EBEBEB */
+    --gray-200: 60 3% 73%; /* #BAB9B6 */
+    --gray-300: 205.71 2.93% 53.14%; /* #868789 */
+    --gray-400: 218 11% 65%; /* #9FA7B3 */
+    --gray-500: 75.00 2.94% 73.33%; /* #BBBAB7 */
+    --gray-600: 220 9% 46%; /* #6C7585 */
+    --gray-700: 0 0% 20.78%; /* #353535 */
+    --gray-800: 0 0% 21%; /* #363636 */
+    --gray-900: 220 13% 18%; /* #272E3B */
+    
+    /* Blue scale */
+    --blue-50: 181.32 70.83% 90.59%; /* #D5F5FA */
+    --blue-400: 219 85% 66%; /* #4D9EFF */
+    --blue-500: 210 100% 96.08%; /* #F0F8FF */
+    --blue-800: 216 80% 30%; /* #0F4C99 */
+    --blue-900: 216 75% 36.3%; /* #1659B3 */
+  }
+
+  /* Black Pacific Smoke theme */
+  [data-theme="black-pacificsmoke"] {
+    /* Core UI variables */
+    --radius: 0.5rem;
+    
+    /* Base colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 21%; /* #363636 */
+    
+    /* Outline */
+    --outline: 224 38% 13%; /* #141938 */
+
+    /* Layout component colors */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 220 14% 5%; /* #0B0E13 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 220 14% 5%; /* #0B0E13 */
+    --border: 220 13% 85%; /* #D0D4DB */
+    --input: 220 13% 88%; /* #D9DDE3 */
+    --ring: 224 38% 13%; /* #141938 */
+    --overlay: 224 14% 10% / 0.6; /* #14171F99 */
+    
+    /* Primary colors */
+    --primary: 7.65 68.37% 55.49%; /* #E04F39 */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Secondary colors */
+    --secondary: 225.52 38.89% 12.75%; /* #131D41 */
+    --secondary-foreground: 221.25 9.09% 21.57%; /* #313847 */
+    --secondary-light: 220 13% 95%; /* #EFF1F5 */
+    
+    /* Accent colors */
+    --accent: 220 13% 90%; /* #DEE2E8 */
+    --accent-foreground: 224 38% 13%; /* #141938 */
+    
+    /* Utility colors */
+    --muted: 220 13% 90%; /* #DEE2E8 */
+    --muted-foreground: 220 10% 40%; /* #5F6979 */
+    --destructive: 0 85% 60%; /* #F03E3E */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Status colors */
+    --success: 160 60% 35%; /* #238F67 */
+    --warning: 20 90% 45%; /* #E54E00 */
+    --error: 0 85% 60%; /* #F03E3E */
+    --error-light: 0 85% 90%; /* #FBCECE */
+    
+    /* Text colors */
+    --text-primary: 220 14% 5%; /* #0B0E13 */
+    --text-primary-main: 218 10% 22%; /* #323842 */
+    --text-error: 0 85% 60%; /* #F03E3E */
+    --text-muted: 220 10% 40%; /* #5F6979 */
+    --text-white: 0 0% 100%; /* #FFFFFF */
+    --text-gray: 3 24% 72%; /* #BCBDB9 */
+    
+    /* Gray scale */
+    --gray-50: 220 14% 97%; /* #F4F6FA */
+    --gray-100: 220 14% 92%; /* #E7ECF2 */
+    --gray-200: 220 10% 75%; /* #B5BCC9 */
+    --gray-300: 220 10% 60%; /* #8D97A8 */
+    --gray-400: 220 10% 55%; /* #7E8A9D */
+    --gray-500: 220 10% 45%; /* #656F85 */
+    --gray-600: 220 10% 35%; /* #4F5769 */
+    --gray-700: 220 14% 25%; /* #343D4D */
+    --gray-800: 224 38% 13%; /* #141938 */
+    --gray-900: 224 40% 10%; /* #10142C */
+    
+    /* Blue scale */
+    --blue-50: 215 30% 95%; /* #ECF2FB */
+    --blue-100: 215 30% 85%; /* #CAD9F0 */
+    --blue-400: 215 40% 60%; /* #6B9CE0 */
+    --blue-500: 215 50% 50%; /* #3378D6 */
+    --blue-800: 224 38% 30%; /* #2C3980 */
+    --blue-900: 224 38% 25%; /* #25306B */
+  }
+  
+  /* Green Kent theme */
+  [data-theme="green-kent"] {
+    /* Core UI variables */
+    --radius: 0.5rem;
+    
+    /* Base colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 21%; /* #363636 */
+    
+    /* Outline */
+    --outline: 150 60% 40%; /* #1FBF66 */
+    
+    /* Layout component colors */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 150 30% 10%; /* #11331C */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 150 30% 10%; /* #11331C */
+    --border: 150 20% 90%; /* #E0F0E6 */
+    --input: 150 20% 85%; /* #D0E6D9 */
+    --ring: 150 60% 35%; /* #23A659 */
+    --overlay: 150 30% 10% / 0.6; /* #11331C99 */
+    
+    /* Primary colors */
+    --primary: 39.27 100.00% 47.45%; /* #F18700 */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Secondary colors */
+    --secondary: 80.58 58.97% 45.88%; /* #70C545 */
+    --secondary-foreground: 83.08 27.47% 45.88%; /* #6A9B58 */
+    --secondary-light: 140 40% 96%; /* #EDF9F3 */
+    
+    /* Accent colors */
+    --accent: 140 30% 90%; /* #D9F0E5 */
+    --accent-foreground: 150 60% 20%; /* #14662F */
+    
+    /* Utility colors */
+    --muted: 140 30% 95%; /* #ECF7F2 */
+    --muted-foreground: 150 25% 40%; /* #4C9966 */
+    --destructive: 0 70% 50%; /* #D92626 */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    
+    /* Status colors */
+    --success: 150 70% 35%; /* #19B354 */
+    --warning: 35 90% 50%; /* #F99500 */
+    --error: 0 70% 55%; /* #E33636 */
+    --error-light: 0 70% 90%; /* #F9D9D9 */
+    
+    /* Text colors */
+    --text-primary: 150 30% 10%; /* #11331C */
+    --text-primary-main: 150 60% 25%; /* #19994A */
+    --text-error: 0 70% 55%; /* #E33636 */
+    --text-muted: 150 20% 40%; /* #538566 */
+    --text-white: 0 0% 100%; /* #FFFFFF */
+    --text-gray: 3 24% 72%; /* #BCBDB9 */
+    /* Gray scale */
+    --gray-50: 150 10% 97%; /* #F5F7F6 */
+    --gray-100: 150 10% 92%; /* #E9EFEB */
+    --gray-200: 150 10% 80%; /* #C6D0CA */
+    --gray-300: 150 10% 70%; /* #ABB8B0 */
+    --gray-400: 150 10% 60%; /* #91A096 */
+    --gray-500: 150 10% 50%; /* #76887C */
+    --gray-600: 150 15% 40%; /* #5A7263 */
+    --gray-700: 150 20% 30%; /* #3F5E49 */
+    --gray-800: 150 25% 20%; /* #274130 */
+    --gray-900: 150 30% 25%; /* #1F663A */
+    
+    /* Blue scale */
+    --blue-50: 160 70% 95%; /* #E5F9F6 */
+    --blue-100: 160 70% 85%; /* #B3EFEA */
+    --blue-400: 150 60% 60%; /* #4DD999 */
+    --blue-500: 150 60% 50%; /* #26CC7F */
+    --blue-800: 150 70% 25%; /* #13994B */
+    --blue-900: 150 70% 30%; /* #17B959 */
+  }
+  
+  /* White MyKnobs theme */
+  [data-theme="white-myknobs"] {
+    /* Core UI variables */
+    --radius: 0.5rem;
+    
+    --sidebar-width: 257px;
+    
+    /* Base colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 215 10% 25%; /* #384353 - Main text color */
+    
+    /* Outline */
+    --outline: 205.00 47.62% 56.47%; /* #5c9bc6 - Header blue */
+
+    /* Layout component colors */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 215 10% 25%; /* #384353 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 215 10% 25%; /* #384353 */
+    --border: 210 20% 90%; /* #DFE6ED - Light borders */
+    --input: 210 20% 95%; /* #EFF3F7 */
+    --ring: 205.00 47.62% 56.47%; /* #5c9bc6 */
+    --overlay: 215 10% 25% / 0.6; /* #38435399 */
+    
+    /* Primary colors */
+    --primary: 15.00 100.00% 40.00%; /* #cc5500 - Primary orange-red */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White text on primary */
+    
+    /* Secondary colors */
+    --secondary: 214.29 35.29% 65.29%; /* #306d98 - Secondary darker blue */
+    --secondary-foreground: 214.29 25.53% 59.61%; /* #395980 */
+    --secondary-light: 205 50% 95%; /* #EEF6FC */
+    
+    /* Accent colors */
+    --accent: 205 50% 95%; /* #EEF6FC */
+    --accent-foreground: 215 10% 25%; /* #384353 */
+    
+    /* Utility colors */
+    --muted: 210 20% 95%; /* #EFF3F7 */
+    --muted-foreground: 215 10% 55%; /* #717D8D */
+    --destructive: 0 70% 50%; /* #D92626 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+    
+    /* Status colors */
+    --success: 158 63% 33%; /* #1F8A59 */
+    --warning: 0 100% 40%; /* #CC0000 */
+    --error: 0 84% 60%; /* #F03E3E */
+    --error-light: 0 84% 90%; /* #FBCECE */
+    
+    /* Text colors */
+    --text-primary: 0.00 0.00% 33.33%; /* #384353 */
+    --text-primary-main: 215 12% 20%; /* #303845 */
+    --text-error: 0 70% 50%; /* #D92626 */
+    --text-muted: 215 10% 55%; /* #717D8D */
+    --text-white: 0 0% 100%; /* #FFFFFF */
+    --text-gray: 0 0% 60%; /* #999999 */
+    --text-outline: 205.00 47.62% 56.47%; /* #5c9bc6 */
+    
+    /* Gray scale */
+    --gray-50: 210 20% 98%; /* #F8FAFB */
+    --gray-100: 210 20% 95%; /* #EFF3F7 */
+    --gray-200: 210 15% 85%; /* #D5DCE3 */
+    --gray-300: 210 15% 75%; /* #B9C5D0 */
+    --gray-400: 210 15% 65%; /* #9DADBF */
+    --gray-500: 210 15% 55%; /* #8195AB */
+    --gray-600: 215 15% 45%; /* #667789 */
+    --gray-700: 215 15% 35%; /* #4E5B69 */
+    --gray-800: 215 15% 25%; /* #37414C */
+    --gray-900: 215 15% 15%; /* #20272F */
+    
+    /* Blue scale */
+    --blue-50: 205 50% 95%; /* #EEF6FC */
+    --blue-100: 205 50% 90%; /* #DCEDF8 */
+    --blue-400: 205.00 47.62% 56.47%; /* #5c9bc6 - Header blue */
+    --blue-500: 205.00 50% 48%; /* #3F82B3 */
+    --blue-800: 205.00 51.85% 39.41%; /* #306d98 */
+    --blue-900: 205 60% 30%; /* #1D5881 */
+  }
+  
+  /* White 1sourcevideo theme */
+  [data-theme="white-1sourcevideo"] {
+    /* Core UI variables */
+    --radius: 0.5rem;
+    
+    --sidebar-width: 257px;
+    
+    /* Base colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 215 10% 25%; /* #384353 - Main text color */
+    
+    /* Outline */
+    --outline: 0 0% 76%; /* #C2C2C2 - Light gray outline */
+
+    /* Layout component colors */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 215 10% 25%; /* #384353 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 215 10% 25%; /* #384353 */
+    --border: 210 20% 90%; /* #DFE6ED - Light borders */
+    --input: 210 20% 95%; /* #EFF3F7 */
+    --ring: 0 0% 60%; /* #999999 - Medium gray ring */
+    --overlay: 0 0% 20% / 0.6; /* #33333399 - Dark gray overlay */
+    
+    /* Primary colors */
+    --primary: 15.00 100.00% 40.00%; /* #cc5500 - Primary orange-red */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White text on primary */
+    
+    /* Secondary colors */
+    --secondary: 0 0% 80%; /* #ccc - Secondary color */
+    --secondary-foreground: 0 0% 40%; /* #666666 - Darker gray for text on secondary */
+    --secondary-light: 0 0% 95%; /* #F2F2F2 - Lighter version of secondary */
+    
+    /* Accent colors */
+    --accent: 0 0% 96%; /* #F5F5F5 - Very light gray accent */
+    --accent-foreground: 0 0% 20%; /* #333333 - Dark gray text on accent */
+    
+    /* Utility colors */
+    --muted: 210 20% 95%; /* #EFF3F7 */
+    --muted-foreground: 215 10% 55%; /* #717D8D */
+    --destructive: 0 70% 50%; /* #D92626 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+    
+    /* Status colors */
+    --success: 158 63% 33%; /* #1F8A59 */
+    --warning: 0 100% 40%; /* #CC0000 */
+    --error: 0 84% 60%; /* #F03E3E */
+    --error-light: 0 84% 90%; /* #FBCECE */
+    
+    /* Text colors */
+    --text-primary: 0.00 0.00% 33.33%; /* #384353 */
+    --text-primary-main: 215 12% 20%; /* #303845 */
+    --text-error: 0 70% 50%; /* #D92626 */
+    --text-muted: 215 10% 55%; /* #717D8D */
+    --text-white: 0 0% 100%; /* #FFFFFF */
+    --text-gray: 0 0% 60%; /* #999999 */
+    --text-outline: 0 0% 60%; /* #999999 - Medium gray outline text */
+    
+    /* Gray scale */
+    --gray-50: 210 20% 98%; /* #F8FAFB */
+    --gray-100: 210 20% 95%; /* #EFF3F7 */
+    --gray-200: 210 15% 85%; /* #D5DCE3 */
+    --gray-300: 210 15% 75%; /* #B9C5D0 */
+    --gray-400: 210 15% 65%; /* #9DADBF */
+    --gray-500: 210 15% 55%; /* #8195AB */
+    --gray-600: 215 15% 45%; /* #667789 */
+    --gray-700: 215 15% 35%; /* #4E5B69 */
+    --gray-800: 215 15% 25%; /* #37414C */
+    --gray-900: 215 15% 15%; /* #20272F */
+    
+    /* Blue scale - converted to Gray/Black scale */
+    --blue-50: 0 0% 98%; /* #FAFAFA - Nearly white */
+    --blue-100: 0 0% 95%; /* #F2F2F2 - Very light gray */
+    --blue-400: 0 0% 60%; /* #999999 - Medium gray */
+    --blue-500: 0 0% 50%; /* #808080 - Medium dark gray */
+    --blue-800: 0 0% 30%; /* #4D4D4D - Dark gray */
+    --blue-900: 0 0% 20%; /* #333333 - Very dark gray */
+  }
+}
+

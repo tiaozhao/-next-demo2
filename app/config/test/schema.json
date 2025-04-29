@@ -1,0 +1,257 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Test Environment Configuration Schema",
+  "description": "Schema for the test environment configuration",
+  "type": "object",
+  "required": ["app", "api", "features", "database", "ui", "services", "server"],
+  "properties": {
+    "app": {
+      "type": "object",
+      "required": ["name", "logLevel", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Application name"
+        },
+        "logLevel": {
+          "type": "string",
+          "enum": ["debug", "info", "warn", "error"],
+          "description": "Application log level"
+        },
+        "version": {
+          "type": "string",
+          "description": "Application version"
+        }
+      }
+    },
+    "api": {
+      "type": "object",
+      "required": ["timeout", "retries"],
+      "properties": {
+        "timeout": {
+          "type": "number",
+          "minimum": 1000,
+          "description": "API timeout in milliseconds"
+        },
+        "retries": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Number of API retry attempts"
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "required": ["enableAI", "enableTelemetry", "enableDebugMode"],
+      "properties": {
+        "enableAI": {
+          "type": "boolean",
+          "description": "Enable AI features"
+        },
+        "enableTelemetry": {
+          "type": "boolean",
+          "description": "Enable telemetry data collection"
+        },
+        "enableDebugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode features"
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "required": ["poolSize", "connectionTimeout", "idleTimeout", "maxConnections", "minConnections"],
+      "properties": {
+        "poolSize": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Database connection pool size"
+        },
+        "connectionTimeout": {
+          "type": "number",
+          "minimum": 1000,
+          "description": "Database connection timeout in milliseconds"
+        },
+        "idleTimeout": {
+          "type": "number",
+          "minimum": 1000,
+          "description": "Database idle timeout in milliseconds"
+        },
+        "maxConnections": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Maximum number of database connections"
+        },
+        "minConnections": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Minimum number of database connections"
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "required": ["theme", "animation", "itemsPerPage", "enableDevTools"],
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": ["light", "dark", "system"],
+          "description": "UI theme"
+        },
+        "animation": {
+          "type": "boolean",
+          "description": "Enable UI animations"
+        },
+        "itemsPerPage": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Default number of items per page"
+        },
+        "enableDevTools": {
+          "type": "boolean",
+          "description": "Enable development tools in UI"
+        }
+      }
+    },
+    "services": {
+      "type": "object",
+      "required": ["shopify", "analytics", "cache", "ai", "storage", "coveo"],
+      "properties": {
+        "shopify": {
+          "type": "object",
+          "required": ["apiVersion", "storageEngine"],
+          "properties": {
+            "apiVersion": {
+              "type": "string",
+              "description": "Shopify API version"
+            },
+            "storageEngine": {
+              "type": "string",
+              "enum": ["prisma", "mongodb", "redis", "memory"],
+              "description": "Storage engine for Shopify data"
+            }
+          }
+        },
+        "analytics": {
+          "type": "object",
+          "required": ["provider", "sampleRate"],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": ["googleAnalytics", "debug", "none"],
+              "description": "Analytics provider"
+            },
+            "sampleRate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Analytics sample rate (0-1)"
+            }
+          }
+        },
+        "cache": {
+          "type": "object",
+          "required": ["ttl", "provider"],
+          "properties": {
+            "ttl": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Cache time-to-live in seconds"
+            },
+            "provider": {
+              "type": "string",
+              "enum": ["memory", "redis", "file"],
+              "description": "Cache provider"
+            }
+          }
+        },
+        "ai": {
+          "type": "object",
+          "required": ["provider", "model"],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "AI service provider"
+            },
+            "model": {
+              "type": "string",
+              "description": "AI model to use"
+            }
+          }
+        },
+        "storage": {
+          "type": "object",
+          "required": ["bucketName"],
+          "properties": {
+            "bucketName": {
+              "type": "string",
+              "description": "Storage bucket name"
+            }
+          }
+        },
+        "coveo": {
+          "type": "object",
+          "required": ["organizationId", "apiKey", "productSource", "pageSource"],
+          "properties": {
+            "organizationId": {
+              "type": "string",
+              "description": "Coveo organization ID"
+            },
+            "apiKey": {
+              "type": "string",
+              "description": "Coveo API key"
+            },
+            "productSource": {
+              "type": "object",
+              "required": ["name", "pushSourceId"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Coveo product source name"
+                },
+                "pushSourceId": {
+                  "type": "string",
+                  "description": "Coveo product push source ID"
+                }
+              }
+            },
+            "pageSource": {
+              "type": "object",
+              "required": ["name", "pushSourceId"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Coveo page source name"
+                },
+                "pushSourceId": {
+                  "type": "string",
+                  "description": "Coveo page push source ID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server": {
+      "type": "object",
+      "required": ["port", "cors"],
+      "properties": {
+        "port": {
+          "type": "number",
+          "description": "Server port"
+        },
+        "cors": {
+          "type": "object",
+          "required": ["allowedOrigins"],
+          "properties": {
+            "allowedOrigins": {
+              "type": "string",
+              "description": "CORS allowed origins"
+            }
+          }
+        }
+      }
+    }
+  }
+} 

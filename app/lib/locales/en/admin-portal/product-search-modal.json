@@ -1,0 +1,11 @@
+{
+  "label": "Choose Product",
+  "placeholder": "Enter Product Name or Item Number",
+  "search-empty-result": "No matches found. Try a valid product code or keyword.",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "product-select-tree": {
+    "stock": "{{count}} in stock"
+  },
+  "selected-products": "Total Selected {{count}} Products"
+}

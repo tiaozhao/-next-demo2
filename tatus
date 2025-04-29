@@ -1,0 +1,11 @@
+[33mcommit b63d99b0238e74aa571b6731e2cbb994a76e27f2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrefactor/code-cleanup-and-types[m[33m)[m
+Author: pgsev77 <pgsev77@gmail.com>
+Date:   Tue Apr 22 21:32:53 2025 +0800
+
+    refactor: remove draft quote functionality while preserving regular quotes
+    
+    - Remove all draft quote API routes
+    - Remove draft quote related methods from QuoteService
+    - Remove DRAFT status from QuoteStatus enum and update status transition logic
+    - Remove draft quote related schemas and types
+    - Preserve all regular quote functionality
