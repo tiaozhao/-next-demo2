@@ -142,6 +142,11 @@ export default defineConfig({
     tsconfigPaths(),
     yaml(),
   ],
+  optimizeDeps: {
+    include: ['date-fns', 'date-fns-tz'],
+    exclude: [],
+    force: true
+  },
   build: {
     assetsInlineLimit: 0,
     rollupOptions: {
@@ -159,6 +164,15 @@ export default defineConfig({
         entryFileNames: (chunkInfo) => {
           return `assets/[name]-[hash].js`;
         },
+      },
+      cache: true,
+      maxParallelFileOps: 3, // 限制并行文件操作数量
+    },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
       },
     },
   },

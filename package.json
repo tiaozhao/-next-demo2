@@ -2,8 +2,8 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build": "remix vite:build && mkdir -p build/client/apps/customer-account/assets && cp build/client/assets/* build/client/apps/customer-account/assets/",
-    "dev": "pnpm exec remix vite:dev",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' remix vite:build && mkdir -p build/client/apps/customer-account/assets && cp build/client/assets/* build/client/apps/customer-account/assets/",
+    "dev": "NODE_OPTIONS='--max-old-space-size=4096' pnpm exec remix vite:dev",
     "shopify:dev": "shopify app dev",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
